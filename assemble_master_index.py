@@ -216,10 +216,10 @@ TEMPLATE = """<!doctype html>
         <ul>
           <li><b>Definition:</b> Guaranteed average cost per operation over any worst-case sequence of n operations. (No probability involved!).</li>
           <li><b>Aggregate Method:</b> Find total cost T(n) for n operations, divide: T(n)/n.</li>
-          <li><b>Binary Counter:</b> Bit i flips ⌊n/2^i⌋ times. Total flips &lt; 2n. Amortized cost &lt; 2 = O(1).</li>
+          <li><b>Binary Counter:</b> Bit i flips ⌊n/2ⁱ⌋ times. Total flips &lt; 2n. Amortized cost &lt; 2 = O(1).</li>
           <li><b>Accounting Method:</b> Assign amortized charge ĉ_i. Difference ĉ_i - c_i stored as credit in bank. Invariant: Bank balance ≥ 0 always!</li>
           <li><b>Doubling Array:</b> Charge Rs 5 (Rs 2 write, Rs 3 bank). Bank pays all copy spikes. Amortized cost O(1).</li>
-          <li><b>Push Digits at 2^k:</b> Updates cost i-1 at powers of 2. Total cost &lt; 3n ⟹ O(1).</li>
+          <li><b>Push Digits at 2ᵏ:</b> Updates cost i-1 at powers of 2. Total cost &lt; 3n ⟹ O(1).</li>
         </ul>
       </div>
 
@@ -236,7 +236,7 @@ TEMPLATE = """<!doctype html>
       <div class="cheat-card">
         <h4>Complexity Classes</h4>
         <ul>
-          <li><b>P:</b> Decision problems solvable in deterministic polynomial time O(n^c). (Dijkstra, Kruskal, 2-SAT).</li>
+          <li><b>P:</b> Decision problems solvable in deterministic polynomial time O(nᶜ). (Dijkstra, Kruskal, 2-SAT).</li>
           <li><b>NP:</b> Decision problems verifiable in deterministic polynomial time given a certificate. P ⊆ NP.</li>
           <li><b>NP-Hard:</b> At least as hard as every problem in NP. (Halting problem, Optimization TSP).</li>
           <li><b>NP-Complete (NPC):</b> Hardest problems in NP (NPC = NP ∩ NP-hard). Cook's theorem: Circuit-SAT was first NPC.</li>
@@ -294,6 +294,7 @@ if ($('mcq-trainer-view-list')) {
   $('mcq-trainer-view-list').innerHTML = $('mcq-trainer-list').innerHTML;
 }
 </script>
+
 </body>
 </html>
 """

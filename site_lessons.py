@@ -14,19 +14,19 @@ LESSONS_HTML = """
     </div>
   </div>
   
-  <p>In algorithm design, execution speed is not measured in seconds, but in how running time scales as input size \(n\) grows. We classify problems into two worlds:</p>
+  <p>In algorithm design, execution speed is not measured in seconds, but in how running time scales as input size n grows. We classify problems into two worlds:</p>
   <ul style="margin: 8px 0 14px 24px;">
-    <li><b>Tractable (Polynomial Time):</b> Algorithms with time complexity bounded by a polynomial: \(O(n), O(n \log n), O(n^2), O(n^3)\). Even for large inputs (\(n = 100,000\)), modern processors complete in milliseconds or seconds.</li>
-    <li><b>Intractable (Exponential Time):</b> Algorithms requiring \(O(2^n), O(3^n), O(n!)\) steps. While they run fine for \(n = 15\), an input of \(n = 50\) requires more steps than seconds elapsed since the Big Bang!</li>
+    <li><b>Tractable (Polynomial Time):</b> Algorithms with time complexity bounded by a polynomial: O(n), O(n log n), O(n²), O(n³). Even for large inputs (n = 100,000), modern processors complete in milliseconds or seconds.</li>
+    <li><b>Intractable (Exponential Time):</b> Algorithms requiring O(2ⁿ), O(3ⁿ), O(n!) steps. While they run fine for n = 15, an input of n = 50 requires more steps than seconds elapsed since the Big Bang!</li>
   </ul>
 
   <div class="say-box">
-    <b>In One Line:</b> "Polynomial" (\(n^c\)) means practical and scalable. "Exponential" (\(2^n\)) means it hits a computational brick wall the moment \(n\) exceeds 40.
+    <b>In One Line:</b> "Polynomial" (nᶜ) means practical and scalable. "Exponential" (2ⁿ) means it hits a computational brick wall the moment n exceeds 40.
   </div>
 
   <div class="analogy-box">
     <div class="analogy-title">💡 Real-Life Analogy: Intercity Train vs Rocket to the Edge of the Galaxy</div>
-    If an input of \(n=10\) takes 1 second, increasing \(n\) to 50 on an \(O(n^2)\) algorithm takes 25 seconds (a pleasant train commute). On an \(O(2^n)\) algorithm, it takes over <b>13 days</b>. At \(n=60\), it takes <b>365 centuries</b>!
+    If an input of n=10 takes 1 second, increasing n to 50 on an O(n²) algorithm takes 25 seconds (a pleasant train commute). On an O(2ⁿ) algorithm, it takes over <b>13 days</b>. At n=60, it takes <b>365 centuries</b>!
   </div>
 
   <!-- Simulation 1: Growth Rates -->
@@ -35,10 +35,10 @@ LESSONS_HTML = """
       <div class="sim-title">⚡ Interactive Simulation: Growth of Functions on a Log Scale</div>
       <span class="exam-chip">Visual Lab</span>
     </div>
-    <p class="sim-hint">Drag the slider for \(n\) and observe how exponential curves shoot into infinity while polynomial curves remain flat. Assumes a CPU executing \(10^9\) steps/sec.</p>
+    <p class="sim-hint">Drag the slider for n and observe how exponential curves shoot into infinity while polynomial curves remain flat. Assumes a CPU executing 10⁹ steps/sec.</p>
     
     <div class="row">
-      <label for="gn" style="font-weight:700;">Input Size \(n\) = <span id="gnv" class="mono" style="font-size:18px; color:var(--accent);">20</span></label>
+      <label for="gn" style="font-weight:700;">Input Size n = <span id="gnv" class="mono" style="font-size:18px; color:var(--accent);">20</span></label>
       <input id="gn" type="range" min="1" max="60" value="20" style="flex:1; max-width:320px;">
     </div>
     
@@ -49,8 +49,8 @@ LESSONS_HTML = """
       <div>
         <svg class="interactive-fig" id="gchart" viewBox="0 0 420 270" role="img" aria-label="Growth chart on log scale"></svg>
         <div class="row" style="font-size:12px; color:var(--muted); justify-content:center; margin-top:6px;">
-          <span><i style="display:inline-block; width:12px; height:4px; background:var(--accent); vertical-align:middle; margin-right:4px;"></i> \(n, n^2, n^3\) (Polynomial)</span>
-          <span style="margin-left:14px;"><i style="display:inline-block; width:12px; height:4px; background:var(--hard); vertical-align:middle; margin-right:4px;"></i> \(2^n, n!\) (Exponential)</span>
+          <span><i style="display:inline-block; width:12px; height:4px; background:var(--accent); vertical-align:middle; margin-right:4px;"></i> n, n², n³ (Polynomial)</span>
+          <span style="margin-left:14px;"><i style="display:inline-block; width:12px; height:4px; background:var(--hard); vertical-align:middle; margin-right:4px;"></i> 2ⁿ, n! (Exponential)</span>
         </div>
       </div>
     </div>
@@ -81,8 +81,8 @@ LESSONS_HTML = """
   <div class="cols-2" style="margin: 16px 0;">
     <div style="background:var(--sunk); border-radius:12px; padding:16px;">
       <h4 style="font:800 16px var(--font-display); margin-bottom:8px; color:var(--accent);">Decision Problem</h4>
-      <p style="font-size:14px;">Answers a binary question: "Does there exist a solution with value \(\le k\) (or \(\ge k\))?"</p>
-      <p style="font-size:13px; color:var(--muted); margin-top:6px;">Example: "Is there a TSP tour of length \(\le 500\text{ km}\)?"</p>
+      <p style="font-size:14px;">Answers a binary question: "Does there exist a solution with value ≤ k (or ≥ k)?"</p>
+      <p style="font-size:13px; color:var(--muted); margin-top:6px;">Example: "Is there a TSP tour of length ≤ 500 km?"</p>
     </div>
     <div style="background:var(--sunk); border-radius:12px; padding:16px;">
       <h4 style="font:800 16px var(--font-display); margin-bottom:8px; color:var(--hard);">Optimization Problem</h4>
@@ -94,8 +94,8 @@ LESSONS_HTML = """
   <div class="say-box">
     <b>Why Complexity Theory Uses Decision Problems:</b>
     <ul style="padding-left:18px; margin-top:6px;">
-      <li>An optimization problem is <b>at least as hard</b> as its decision version. If you can find the minimum tour cost in polynomial time, you can answer "is cost \(\le k\)?" in \(O(1)\) comparison.</li>
-      <li>Conversely, using binary search on \(k\), a polynomial decision solver can solve the optimization problem in polynomial time!</li>
+      <li>An optimization problem is <b>at least as hard</b> as its decision version. If you can find the minimum tour cost in polynomial time, you can answer "is cost ≤ k?" in O(1) comparison.</li>
+      <li>Conversely, using binary search on k, a polynomial decision solver can solve the optimization problem in polynomial time!</li>
       <li>Therefore, proving the decision problem is NP-hard automatically proves the optimization problem is NP-hard.</li>
     </ul>
   </div>
@@ -131,8 +131,8 @@ LESSONS_HTML = """
     <li><b>Deterministic Algorithm:</b> At each step, given the current state and input, there is exactly <b>one</b> unique next operation. This models real computers.</li>
     <li><b>Non-Deterministic Algorithm:</b> Consists of two stages:
       <ol style="margin-top:4px;">
-        <li><b>Guessing stage:</b> Magically generates a candidate certificate / solution string \(c\) in \(O(1)\) time using a special <code>choice()</code> primitive.</li>
-        <li><b>Verification stage:</b> Runs a deterministic polynomial algorithm \(V(x, c)\) to verify if the candidate solves the problem. If ANY guess produces a YES, the algorithm accepts!</li>
+        <li><b>Guessing stage:</b> Magically generates a candidate certificate / solution string c in O(1) time using a special <code>choice()</code> primitive.</li>
+        <li><b>Verification stage:</b> Runs a deterministic polynomial algorithm V(x, c) to verify if the candidate solves the problem. If ANY guess produces a YES, the algorithm accepts!</li>
       </ol>
     </li>
   </ul>
@@ -147,7 +147,7 @@ LESSONS_HTML = """
       <div class="sim-title">🔍 Interactive Lab: Clique Verification vs Brute Force</div>
       <span class="exam-chip">Asked 2× in Exams! (5 marks)</span>
     </div>
-    <p class="sim-hint">Problem: Does this 7-vertex graph contain a <b>clique of size \(k = 4\)</b>? Click 4 vertices to supply your candidate certificate, then click <b>Verify My Certificate</b>.</p>
+    <p class="sim-hint">Problem: Does this 7-vertex graph contain a <b>clique of size k = 4</b>? Click 4 vertices to supply your candidate certificate, then click <b>Verify My Certificate</b>.</p>
     
     <div class="cols-2">
       <svg class="interactive-fig" id="cq" viewBox="0 0 400 320" role="img" aria-label="Graph for Clique Verification"></svg>
@@ -158,7 +158,7 @@ LESSONS_HTML = """
           <button class="btn" id="cqr">Reset</button>
         </div>
         <div class="status-box" id="cqs">Pick 4 vertices to create your certificate.</div>
-        <p class="sim-hint" style="margin-top:12px;"><b>Verification Time:</b> Checking your 4 vertices takes just \(\binom{4}{2} = 6\) pair checks (\(O(k^2)\)). Brute force must check \(\binom{7}{4} = 35\) combinations!</p>
+        <p class="sim-hint" style="margin-top:12px;"><b>Verification Time:</b> Checking your 4 vertices takes just C(4, 2) = 6 pair checks (O(k²)). Brute force must check C(7, 4) = 35 combinations!</p>
         <table class="data-table" id="cqt"></table>
       </div>
     </div>
@@ -193,7 +193,7 @@ LESSONS_HTML = """
     </div>
     <div class="cheat-card" style="border-top:4px solid var(--accent);">
       <h4 style="color:var(--accent);">Class NP</h4>
-      <p style="font-size:14px;">Decision problems whose YES-instance can be <b>VERIFIED</b> in polynomial time given a certificate. \(P \subseteq NP\).</p>
+      <p style="font-size:14px;">Decision problems whose YES-instance can be <b>VERIFIED</b> in polynomial time given a certificate. P ⊆ NP.</p>
       <p style="font-size:12px; color:var(--muted); margin-top:6px;"><b>Examples:</b> 3-SAT, Clique, Hamiltonian Cycle, Subset Sum, 0/1 Knapsack decision.</p>
     </div>
     <div class="cheat-card" style="border-top:4px solid var(--hard);">
@@ -203,7 +203,7 @@ LESSONS_HTML = """
     </div>
     <div class="cheat-card" style="border-top:4px solid var(--purple);">
       <h4 style="color:var(--purple);">Class NP-Complete (NPC)</h4>
-      <p style="font-size:14px;">The hardest problems in NP: \(NPC = NP \cap NP\text{-hard}\). Solvable in poly time non-deterministically.</p>
+      <p style="font-size:14px;">The hardest problems in NP: NPC = NP ∩ NP-hard. Solvable in poly time non-deterministically.</p>
       <p style="font-size:12px; color:var(--muted); margin-top:6px;"><b>Examples:</b> Circuit-SAT (Cook's theorem), 3-SAT, Vertex Cover, Clique, TSP decision.</p>
     </div>
   </div>
@@ -214,7 +214,7 @@ LESSONS_HTML = """
       <div class="sim-title">📊 Interactive Venn Diagram: P vs NP vs NP-Complete</div>
       <span class="exam-chip">Autumn 2022 Q1e Trap</span>
     </div>
-    <p class="sim-hint">Toggle between the two universes: what researchers believe (\(P \ne NP\)) vs what happens if someone solves an NPC problem in polynomial time (\(P = NP\)).</p>
+    <p class="sim-hint">Toggle between the two universes: what researchers believe (P ≠ NP) vs what happens if someone solves an NPC problem in polynomial time (P = NP).</p>
     
     <div class="row">
       <button class="btn active" id="v1" aria-pressed="true">Universe 1: P ≠ NP (Consensus)</button>
@@ -243,22 +243,22 @@ LESSONS_HTML = """
     <div class="lesson-badge">5</div>
     <div class="lesson-titles">
       <div class="lesson-unit">Unit 5 · Polynomial Reductions</div>
-      <h2 class="lesson-title">Polynomial Reductions (\(A \le_p B\)) & The Direction Trap</h2>
+      <h2 class="lesson-title">Polynomial Reductions (A ≤ₚ B) & The Direction Trap</h2>
     </div>
   </div>
 
-  <p>A polynomial-time reduction \(A \le_p B\) (read "A reduces to B") is an algorithm that converts an instance \(x\) of problem A into an instance \(f(x)\) of problem B in polynomial time, such that:</p>
+  <p>A polynomial-time reduction A ≤ₚ B (read "A reduces to B") is an algorithm that converts an instance x of problem A into an instance f(x) of problem B in polynomial time, such that:</p>
   <div style="text-align:center; margin:10px 0; font-family:var(--font-mono); font-size:17px; background:var(--sunk); padding:8px; border-radius:8px;">
-    \(x \in A \iff f(x) \in B\) (YES maps to YES, NO maps to NO)
+    x ∈ A ⟺ f(x) ∈ B (YES maps to YES, NO maps to NO)
   </div>
 
-  <p><b>Core Intuition:</b> \(A \le_p B\) means <b>"Problem A is NO HARDER than problem B"</b>. If you have a fast subroutine to solve B, you can solve A in fast time!</p>
+  <p><b>Core Intuition:</b> A ≤ₚ B means <b>"Problem A is NO HARDER than problem B"</b>. If you have a fast subroutine to solve B, you can solve A in fast time!</p>
 
   <div class="exam-trap-box">
     <div class="exam-trap-title">⚠️ THE DIRECTION TRAP (Spring 2023 Q1c(ii))</div>
-    To prove that a new problem \(X\) is NP-hard, you MUST reduce a <b>known NP-hard problem \(K\) to \(X\)</b>:
-    <div style="text-align:center; font-weight:700; font-size:16px; margin:6px 0;">\(K_{\text{known hard}} \le_p X_{\text{new}}\)</div>
-    Reducing \(X \le_p K\) proves NOTHING about the hardness of \(X\)! (A trivial problem like 2+2=4 reduces to 3-SAT, but that doesn't make addition hard!).
+    To prove that a new problem X is NP-hard, you MUST reduce a <b>known NP-hard problem K to X</b>:
+    <div style="text-align:center; font-weight:700; font-size:16px; margin:6px 0;">K_known_hard ≤ₚ X_new</div>
+    Reducing X ≤ₚ K proves NOTHING about the hardness of X! (A trivial problem like 2+2=4 reduces to 3-SAT, but that doesn't make addition hard!).
   </div>
 
   <!-- Simulation 5: Reduction Rules MCQ Matrix -->
@@ -267,7 +267,7 @@ LESSONS_HTML = """
       <div class="sim-title">⚡ Interactive Reduction Rules Trainer: Tap to Test Deductions</div>
       <span class="exam-chip">Tested in 5 End-Sem Papers</span>
     </div>
-    <p class="sim-hint">Assume \(A \le_p B\). Tap each card to discover whether the deduction is valid or an exam trap.</p>
+    <p class="sim-hint">Assume A ≤ₚ B. Tap each card to discover whether the deduction is valid or an exam trap.</p>
     <div class="cheat-grid" id="rules-grid"></div>
   </div>
 
@@ -298,15 +298,15 @@ LESSONS_HTML = """
     <div>
       <h4 style="font:800 16px var(--font-display); margin-bottom:6px;">Terminology:</h4>
       <ul style="padding-left:18px; font-size:14.5px;">
-        <li><b>Literal:</b> A boolean variable \(x\) or its negation \(\neg x\).</li>
-        <li><b>Clause:</b> An OR (\(\vee\)) of literals: \((x_1 \vee \neg x_2 \vee x_3)\).</li>
-        <li><b>CNF (Conjunctive Normal Form):</b> An AND (\(\wedge\)) of clauses.</li>
+        <li><b>Literal:</b> A boolean variable x or its negation ≠g x.</li>
+        <li><b>Clause:</b> An OR (∨) of literals: (x_1 ∨ ≠g x_2 ∨ x_3).</li>
+        <li><b>CNF (Conjunctive Normal Form):</b> An AND (∧) of clauses.</li>
         <li><b>3-CNF-SAT:</b> A CNF formula where <b>every clause has exactly 3 literals</b>.</li>
       </ul>
     </div>
     <div class="say-box" style="margin:0;">
       <b>2-SAT vs 3-SAT: The Razor's Edge!</b><br>
-      • <b>2-SAT</b> (2 literals per clause) is in <b>P</b>! It is solvable in linear \(O(V+E)\) time using an implication graph and strongly connected components (SCC).<br>
+      • <b>2-SAT</b> (2 literals per clause) is in <b>P</b>! It is solvable in linear O(V+E) time using an implication graph and strongly connected components (SCC).<br>
       • <b>3-SAT</b> (3 literals per clause) jumps immediately to <b>NP-Complete</b>!
     </div>
   </div>
@@ -316,7 +316,7 @@ LESSONS_HTML = """
     <div class="sim-header">
       <div class="sim-title">⚡ Interactive 3-CNF SAT Circuit & Truth Table Simulator</div>
     </div>
-    <p class="sim-hint">Toggle variables \(x_1, x_2, x_3\) below. A clause turns green when at least one literal evaluates to TRUE. The formula is satisfied when all clauses turn green.</p>
+    <p class="sim-hint">Toggle variables x_1, x_2, x_3 below. A clause turns green when at least one literal evaluates to TRUE. The formula is satisfied when all clauses turn green.</p>
     
     <div class="row" id="satvars"></div>
     <div id="satcl" style="margin:12px 0;"></div>
@@ -351,35 +351,35 @@ LESSONS_HTML = """
 
   <p>These three classic graph problems form an intimately connected family. Understanding their complement mapping makes reduction proofs effortless:</p>
   <ul style="margin: 8px 0 14px 24px;">
-    <li><b>Clique:</b> A subset of vertices \(S \subseteq V\) where every pair is joined by an edge (everyone knows everyone).</li>
-    <li><b>Independent Set (IS):</b> A subset of vertices \(S \subseteq V\) where no two vertices share an edge (no one knows each other).</li>
-    <li><b>Vertex Cover (VC):</b> A subset of vertices \(C \subseteq V\) such that every edge in \(E\) has at least one endpoint in \(C\).</li>
+    <li><b>Clique:</b> A subset of vertices S ⊆ V where every pair is joined by an edge (everyone knows everyone).</li>
+    <li><b>Independent Set (IS):</b> A subset of vertices S ⊆ V where no two vertices share an edge (no one knows each other).</li>
+    <li><b>Vertex Cover (VC):</b> A subset of vertices C ⊆ V such that every edge in E has at least one endpoint in C.</li>
   </ul>
 
   <div class="say-box">
     <b>The Fundamental Theorem of Complements:</b><br>
-    For any graph \(G = (V, E)\) with \(|V| = n\) vertices and its complement graph \(\bar{G} = (V, \bar{E})\):
+    For any graph G = (V, E) with |V| = n vertices and its complement graph Ḡ = (V, Ē):
     <ol style="margin-top:4px; padding-left:20px;">
-      <li>\(S\) is an <b>Independent Set</b> in \(G \iff S\) is a <b>Clique</b> in \(\bar{G}\).</li>
-      <li>\(S\) is a <b>Vertex Cover</b> in \(G \iff V \setminus S\) is an <b>Independent Set</b> in \(G\).</li>
-      <li>Therefore, \(G\) has a <b>clique of size \(k\)</b> \(\iff \bar{G}\) has a <b>vertex cover of size \(n - k\)</b>!</li>
+      <li>S is an <b>Independent Set</b> in G ⟺ S is a <b>Clique</b> in Ḡ.</li>
+      <li>S is a <b>Vertex Cover</b> in G ⟺ V \\ S is an <b>Independent Set</b> in G.</li>
+      <li>Therefore, G has a <b>clique of size k</b> ⟺ Ḡ has a <b>vertex cover of size n - k</b>!</li>
     </ol>
   </div>
 
   <!-- Simulation 7: Triad Dual Graph -->
   <div class="sim-container" id="sim-triad-container">
     <div class="sim-header">
-      <div class="sim-title">🔄 Dual Graph Simulator: Graph \(G\) vs Complement \(\bar{G}\)</div>
+      <div class="sim-title">🔄 Dual Graph Simulator: Graph G vs Complement Ḡ</div>
     </div>
-    <p class="sim-hint">Tap vertices on either graph to select subset \(S\). Dashed lines in the right graph represent non-edges of \(G\). Watch how Clique in \(G\), Independent Set in \(\bar{G}\), and Vertex Cover in \(\bar{G}\) synchronize perfectly!</p>
+    <p class="sim-hint">Tap vertices on either graph to select subset S. Dashed lines in the right graph represent non-edges of G. Watch how Clique in G, Independent Set in Ḡ, and Vertex Cover in Ḡ synchronize perfectly!</p>
     
     <div class="cols-2">
       <div>
-        <b>Graph \(G\)</b>
+        <b>Graph G</b>
         <svg class="interactive-fig" id="g1" viewBox="0 0 300 220" role="img" aria-label="Original graph G"></svg>
       </div>
       <div>
-        <b>Complement Graph \(\bar{G}\)</b>
+        <b>Complement Graph Ḡ</b>
         <svg class="interactive-fig" id="g2" viewBox="0 0 300 220" role="img" aria-label="Complement graph G bar"></svg>
       </div>
     </div>
@@ -413,27 +413,27 @@ LESSONS_HTML = """
   <div class="cols-2" style="margin-bottom:14px;">
     <div>
       <h4 style="font:800 16px var(--font-display); color:var(--accent);">Hamiltonian Cycle (HC)</h4>
-      <p style="font-size:14px;">Given graph \(G=(V,E)\), does there exist a simple cycle visiting every vertex <b>exactly once</b> and returning to start? (NP-complete).</p>
-      <p style="font-size:12px; color:var(--muted); margin-top:4px;">Do not confuse with <b>Euler Tour</b> (visits every <i>edge</i> once), which is easily solvable in \(O(E)\) in class P!</p>
+      <p style="font-size:14px;">Given graph G=(V,E), does there exist a simple cycle visiting every vertex <b>exactly once</b> and returning to start? (NP-complete).</p>
+      <p style="font-size:12px; color:var(--muted); margin-top:4px;">Do not confuse with <b>Euler Tour</b> (visits every <i>edge</i> once), which is easily solvable in O(E) in class P!</p>
     </div>
     <div>
       <h4 style="font:800 16px var(--font-display); color:var(--purple);">Decision TSP</h4>
-      <p style="font-size:14px;">Given complete graph with edge weights \(c(u,v)\) and integer \(k\), is there a tour visiting all cities with total cost \(\le k\)? (NP-complete).</p>
+      <p style="font-size:14px;">Given complete graph with edge weights c(u,v) and integer k, is there a tour visiting all cities with total cost ≤ k? (NP-complete).</p>
     </div>
   </div>
 
   <div class="say-box">
-    <b>The Standard Exam Reduction Proof: \(HC \le_p TSP\) (Autumn 2024 Q7b - 5 Marks)</b>
+    <b>The Standard Exam Reduction Proof: HC ≤ₚ TSP (Autumn 2024 Q7b - 5 Marks)</b>
     <ol style="padding-left:20px; margin-top:6px;">
-      <li><b>Construct complete graph \(G'\) on the same vertices \(V\):</b>
-        <br>For every pair of vertices \((u, v)\):
-        <br>• If \((u, v) \in E\) (original edge): set cost \(c(u, v) = 1\) (or 0)
-        <br>• If \((u, v) \notin E\) (non-edge): set cost \(c(u, v) = 2\) (or 1)
-        <br>• Set budget threshold \(k = n\) (or 0).
+      <li><b>Construct complete graph G' on the same vertices V:</b>
+        <br>For every pair of vertices (u, v):
+        <br>• If (u, v) ∈ E (original edge): set cost c(u, v) = 1 (or 0)
+        <br>• If (u, v) ∉ E (non-edge): set cost c(u, v) = 2 (or 1)
+        <br>• Set budget threshold k = n (or 0).
       </li>
       <li><b>Correctness:</b>
-        <br>• If \(G\) has an HC, the same cycle in \(G'\) uses \(n\) edges of cost 1 \(\implies \text{Total cost} = n \le k\).
-        <br>• If \(G'\) has a tour of cost \(\le n\), since all edges cost \(\ge 1\), every edge in the tour must cost exactly 1. Hence, the tour uses only original edges of \(G\), yielding a valid Hamiltonian Cycle!
+        <br>• If G has an HC, the same cycle in G' uses n edges of cost 1 ⟹ Total cost = n ≤ k.
+        <br>• If G' has a tour of cost ≤ n, since all edges cost ≥ 1, every edge in the tour must cost exactly 1. Hence, the tour uses only original edges of G, yielding a valid Hamiltonian Cycle!
       </li>
     </ol>
   </div>
@@ -450,7 +450,7 @@ LESSONS_HTML = """
     
     <div class="cols-2" style="margin-top:12px;">
       <div>
-        <b>Original Graph \(G\)</b>
+        <b>Original Graph G</b>
         <svg class="interactive-fig" id="h1" viewBox="0 0 300 250" role="img" aria-label="Original graph"></svg>
       </div>
       <div>
@@ -489,7 +489,7 @@ LESSONS_HTML = """
   <div class="cheat-grid" style="margin: 16px 0;">
     <div class="cheat-card">
       <h4>1. Approximation Algorithms</h4>
-      <p style="font-size:14px;">Polynomial-time algorithms that guarantee a solution within a provable factor \(\rho\) of the optimal answer.</p>
+      <p style="font-size:14px;">Polynomial-time algorithms that guarantee a solution within a provable factor ρ of the optimal answer.</p>
       <p style="font-size:12px; color:var(--muted); margin-top:4px;"><b>Examples:</b> 2-approx Vertex Cover, 2-approx Metric TSP.</p>
     </div>
     <div class="cheat-card">
@@ -500,12 +500,12 @@ LESSONS_HTML = """
     <div class="cheat-card">
       <h4>3. Special Cases & Restrictions</h4>
       <p style="font-size:14px;">Restricting input structures to domains where the problem becomes polynomial.</p>
-      <p style="font-size:12px; color:var(--muted); margin-top:4px;"><b>Examples:</b> Vertex cover on trees (dynamic programming in \(O(n)\)), 2-SAT (linear time).</p>
+      <p style="font-size:12px; color:var(--muted); margin-top:4px;"><b>Examples:</b> Vertex cover on trees (dynamic programming in O(n)), 2-SAT (linear time).</p>
     </div>
     <div class="cheat-card">
-      <h4>4. Dynamic Programming (Small \(n\))</h4>
-      <p style="font-size:14px;">Exact exponential algorithms that replace brute-force \(O(n!)\) with much faster exponential time.</p>
-      <p style="font-size:12px; color:var(--muted); margin-top:4px;"><b>Examples:</b> Held-Karp algorithm for TSP in \(O(n^2 2^n)\), 0/1 Knapsack pseudo-polynomial DP.</p>
+      <h4>4. Dynamic Programming (Small n)</h4>
+      <p style="font-size:14px;">Exact exponential algorithms that replace brute-force O(n!) with much faster exponential time.</p>
+      <p style="font-size:12px; color:var(--muted); margin-top:4px;"><b>Examples:</b> Held-Karp algorithm for TSP in O(n² 2ⁿ), 0/1 Knapsack pseudo-polynomial DP.</p>
     </div>
     <div class="cheat-card">
       <h4>5. Backtracking & Branch and Bound</h4>
@@ -537,9 +537,9 @@ LESSONS_HTML = """
     </div>
   </div>
 
-  <p>An algorithm has an <b>approximation ratio \(\rho\)</b> if for all inputs:
-  \[\max\left(\frac{C}{C^*}, \frac{C^*}{C}\right) \le \rho\]
-  For minimization problems, \(\text{Cost}(\text{Algo}) \le \rho \cdot \text{Cost}(OPT)\).</p>
+  <p>An algorithm has an <b>approximation ratio ρ</b> if for all inputs:
+  <div class="code-block" style="text-align:center; font-weight:700; margin:10px 0; color:var(--accent);">max(C / C*, C* / C) ≤ ρ</div>
+  For minimization problems, Cost(Algo) ≤ ρ · Cost(OPT).</p>
 
   <h3 style="margin: 18px 0 8px; font:800 20px var(--font-display);">1. Vertex Cover: 2-Approximation via Maximal Matching</h3>
   <pre class="code-block">APPROX-VERTEX-COVER(G):
@@ -555,10 +555,10 @@ LESSONS_HTML = """
   <div class="say-box">
     <b>Why the Ratio is At Most 2:</b>
     <ul style="padding-left:18px;">
-      <li>The edges picked in \(M\) share no endpoints (they form a <b>matching</b>).</li>
-      <li>Any valid vertex cover (including optimal \(C^*\)) MUST pick at least one endpoint from each edge in \(M\). Hence, \(|C^*| \ge |M|\).</li>
-      <li>Our algorithm adds both endpoints: \(|C| = 2|M|\).</li>
-      <li>Therefore: \(|C| = 2|M| \le 2|C^*|\). The ratio is strictly \(\le 2\)!</li>
+      <li>The edges picked in M share no endpoints (they form a <b>matching</b>).</li>
+      <li>Any valid vertex cover (including optimal C^*) MUST pick at least one endpoint from each edge in M. Hence, |C^*| ≥ |M|.</li>
+      <li>Our algorithm adds both endpoints: |C| = 2|M|.</li>
+      <li>Therefore: |C| = 2|M| ≤ 2|C^*|. The ratio is strictly ≤ 2!</li>
     </ul>
   </div>
 
@@ -567,7 +567,7 @@ LESSONS_HTML = """
     <div class="sim-header">
       <div class="sim-title">🛡️ Interactive 2-Approximation for Vertex Cover (Maximal Matching)</div>
     </div>
-    <p class="sim-hint">Step through the maximal matching algorithm. Selected matching edges \(M\) are highlighted in yellow, while endpoints added to the cover \(C\) are highlighted in red.</p>
+    <p class="sim-hint">Step through the maximal matching algorithm. Selected matching edges M are highlighted in yellow, while endpoints added to the cover C are highlighted in red.</p>
     <div class="cols-2">
       <svg class="interactive-fig" id="vc-svg" viewBox="0 0 380 260"></svg>
       <div>
@@ -582,7 +582,7 @@ LESSONS_HTML = """
   </div>
 
   <h3 style="margin: 24px 0 8px; font:800 20px var(--font-display);">2. Metric TSP: 2-Approximation via MST & Preorder Walk</h3>
-  <p>Requires the <b>Triangle Inequality</b>: \(c(u, w) \le c(u, v) + c(v, w)\) for all cities. Without the triangle inequality, general TSP cannot be approximated within ANY constant factor \(\rho\) unless \(P = NP\)!</p>
+  <p>Requires the <b>Triangle Inequality</b>: c(u, w) ≤ c(u, v) + c(v, w) for all cities. Without the triangle inequality, general TSP cannot be approximated within ANY constant factor ρ unless P = NP!</p>
 
   <!-- Simulation 10B: Metric TSP Approx -->
   <div class="sim-container" id="sim-tsp-approx-container">
@@ -590,7 +590,7 @@ LESSONS_HTML = """
       <div class="sim-title">🗺️ Interactive 2-Approximation for Metric TSP (7 Cities)</div>
       <span class="exam-chip">Autumn 2012 Q7b</span>
     </div>
-    <p class="sim-hint">Toggle through the 3 algorithmic steps below to see how MST doubling and preorder shortcutting guarantee a tour \(\le 2 \cdot OPT\).</p>
+    <p class="sim-hint">Toggle through the 3 algorithmic steps below to see how MST doubling and preorder shortcutting guarantee a tour ≤ 2 · OPT.</p>
     
     <div class="row">
       <button class="btn active" id="tsp-st1">Step 1: Build MST (Cost 485.6)</button>
@@ -605,9 +605,9 @@ LESSONS_HTML = """
         <table class="data-table" id="tsp-approx-table"></table>
         <div class="say-box" style="margin-top:10px; font-size:13.5px;">
           <b>3-Line Exam Proof:</b><br>
-          1. \(c(T_{\text{MST}}) \le c(\text{OPT})\) (dropping one edge from optimal tour gives a spanning tree).<br>
-          2. Full tree walk visits every edge twice: \(c(W) = 2 \cdot c(T_{\text{MST}})\).<br>
-          3. Skipping repeated cities via triangle inequality never adds cost: \(c(\text{Tour}) \le c(W) \le 2 \cdot c(\text{OPT})\).
+          1. c(T_{MST}) ≤ c(OPT) (dropping one edge from optimal tour gives a spanning tree).<br>
+          2. Full tree walk visits every edge twice: c(W) = 2 · c(T_{MST}).<br>
+          3. Skipping repeated cities via triangle inequality never adds cost: c(Tour) ≤ c(W) ≤ 2 · c(OPT).
         </div>
       </div>
     </div>
@@ -632,7 +632,7 @@ LESSONS_HTML = """
     </div>
   </div>
 
-  <p>Amortized analysis guarantees the <b>average performance of each operation in the worst-case sequence of \(n\) operations</b>. Unlike average-case analysis, <b>NO probability or random inputs are involved</b>: it is a deterministic guarantee on any sequence!</p>
+  <p>Amortized analysis guarantees the <b>average performance of each operation in the worst-case sequence of n operations</b>. Unlike average-case analysis, <b>NO probability or random inputs are involved</b>: it is a deterministic guarantee on any sequence!</p>
 
   <div class="analogy-box">
     <div class="analogy-title">💡 Real-Life Analogy: Annual Gym Membership</div>
@@ -640,9 +640,9 @@ LESSONS_HTML = """
   </div>
 
   <h3 style="margin: 18px 0 8px; font:800 18px var(--font-display);">Case 1: The Binary Counter (Increment)</h3>
-  <p>In an \(k\)-bit counter, incrementing <code>0111</code> to <code>1000</code> flips 4 bits, which costs \(O(k)\). But over \(n\) increments:
-  \[\text{Total flips} = \sum_{i=0}^{\lfloor \log_2 n \rfloor} \lfloor n/2^i \rfloor < n \sum_{i=0}^\infty \frac{1}{2^i} = 2n\]
-  Amortized cost per increment \(= T(n)/n < 2n/n = 2 = O(1)\)!</p>
+  <p>In an k-bit counter, incrementing <code>0111</code> to <code>1000</code> flips 4 bits, which costs O(k). But over n increments:
+  <div class="code-block" style="text-align:center; font-weight:700; margin:10px 0; color:var(--accent);">Total Flips = ∑(i=0 to ⌊log₂ n⌋) ⌊n/2ⁱ⌋ &lt; n · ∑(i=0 to ∞) (1/2ⁱ) = 2n</div>
+  Amortized cost per increment = T(n)/n < 2n/n = 2 = O(1)!</p>
 
   <!-- Simulation 11: Binary Counter -->
   <div class="sim-container" id="sim-counter-container">
@@ -663,14 +663,14 @@ LESSONS_HTML = """
     </div>
   </div>
 
-  <h3 style="margin: 22px 0 8px; font:800 18px var(--font-display);">Case 2: The \(2^k\) Operation Cost Question (Autumn 2024 Q5b - 5 Marks)</h3>
+  <h3 style="margin: 22px 0 8px; font:800 18px var(--font-display);">Case 2: The 2ᵏ Operation Cost Question (Autumn 2024 Q5b - 5 Marks)</h3>
   <div class="say-box">
-    <b>Problem Statement:</b> Operation \(i\) costs \(i\) if \(i\) is a power of 2, and 1 otherwise. Show amortized cost is \(O(1)\).<br>
+    <b>Problem Statement:</b> Operation i costs i if i is a power of 2, and 1 otherwise. Show amortized cost is O(1).<br>
     <b>Proof:</b><br>
-    1. Sum of expensive operations: \(1 + 2 + 4 + 8 + ... + 2^m = 2^{m+1} - 1 < 2n\).<br>
-    2. Sum of cheap operations: at most \(n\) operations costing 1 each \(\le n\).<br>
-    3. Total cost \(T(n) < 2n + n = 3n\).<br>
-    4. Amortized cost \(= T(n)/n < 3n/n \le 3 = O(1)\).
+    1. Sum of expensive operations: 1 + 2 + 4 + 8 + ... + 2ᵐ = 2ᵐ⁺¹ - 1 < 2n.<br>
+    2. Sum of cheap operations: at most n operations costing 1 each ≤ n.<br>
+    3. Total cost T(n) < 2n + n = 3n.<br>
+    4. Amortized cost = T(n)/n < 3n/n ≤ 3 = O(1).
   </div>
 
   <div class="exam-pill-strip">
@@ -693,12 +693,12 @@ LESSONS_HTML = """
     </div>
   </div>
 
-  <p>In the <b>Accounting Method</b>, we charge each operation an amortized fee \(\hat{c}_i\):</p>
+  <p>In the <b>Accounting Method</b>, we charge each operation an amortized fee ĉᵢ:</p>
   <ul style="margin: 8px 0 14px 24px;">
-    <li>If \(\hat{c}_i > c_i\) (actual cost), the excess is deposited into a <b>bank account (credit)</b> associated with specific data items.</li>
-    <li>If \(\hat{c}_i < c_i\), the deficit is withdrawn from the bank account to pay for the expensive operation.</li>
+    <li>If ĉᵢ > c_i (actual cost), the excess is deposited into a <b>bank account (credit)</b> associated with specific data items.</li>
+    <li>If ĉᵢ < c_i, the deficit is withdrawn from the bank account to pay for the expensive operation.</li>
     <li><b>Crucial Invariant:</b> The bank balance must <b>NEVER go negative</b> at any step!
-    \[\sum_{i=1}^n \hat{c}_i - \sum_{i=1}^n c_i \ge 0 \implies \text{Total Actual Cost} \le \sum_{i=1}^n \hat{c}_i\]
+    <div class="code-block" style="text-align:center; font-weight:700; margin:10px 0; color:var(--accent);">∑(i=1 to n) ĉᵢ − ∑(i=1 to n) cᵢ ≥ 0  ⟹  Total Actual Cost ≤ ∑(i=1 to n) ĉᵢ</div>
     </li>
   </ul>
 
@@ -762,10 +762,10 @@ LESSONS_HTML = """
     <div style="background:var(--hard-soft); border-radius:12px; padding:16px;">
       <h4 style="font:800 16px var(--font-display); color:var(--hard);">Monte Carlo Algorithm</h4>
       <ul style="padding-left:18px; font-size:14px; margin-top:6px;">
-        <li><b>Correctness:</b> May output an incorrect answer with small probability \(\epsilon\).</li>
+        <li><b>Correctness:</b> May output an incorrect answer with small probability ε.</li>
         <li><b>Running Time:</b> Fixed / deterministic bound.</li>
-        <li><b>Error Reduction:</b> Repeating \(k\) times shrinks error to \(\epsilon^k\) (e.g. \((1/2)^k\) or \((1/4)^k\)).</li>
-        <li><b>Examples:</b> Miller-Rabin Primality Test, Monte Carlo \(\pi\) Estimation, Karger's Min-Cut.</li>
+        <li><b>Error Reduction:</b> Repeating k times shrinks error to ε^k (e.g. (1/2)ᵏ or (1/4)ᵏ).</li>
+        <li><b>Examples:</b> Miller-Rabin Primality Test, Monte Carlo π Estimation, Karger's Min-Cut.</li>
       </ul>
     </div>
   </div>
@@ -773,9 +773,9 @@ LESSONS_HTML = """
   <!-- Simulation 13: Monte Carlo Pi Dartboard -->
   <div class="sim-container" id="sim-mc-container">
     <div class="sim-header">
-      <div class="sim-title">🎯 Live Canvas Lab: Monte Carlo \(\pi\) Dartboard Simulation</div>
+      <div class="sim-title">🎯 Live Canvas Lab: Monte Carlo π Dartboard Simulation</div>
     </div>
-    <p class="sim-hint">Throw random points into a unit square. The fraction landing inside the quarter circle (\(x^2 + y^2 \le 1\)) is \(\frac{\pi}{4}\). Therefore \(\pi \approx 4 \times \frac{\text{Hits}}{\text{Total}}\).</p>
+    <p class="sim-hint">Throw random points into a unit square. The fraction landing inside the quarter circle (x² + y² ≤ 1) is π / 4. Therefore π ≈ 4 × frac{Hits}{Total}.</p>
     
     <div class="cols-2">
       <canvas class="sim-canvas" id="pi-canvas" width="300" height="300"></canvas>
@@ -810,19 +810,19 @@ LESSONS_HTML = """
     </div>
   </div>
 
-  <p>Deterministic Quicksort with the last element as pivot degrades to \(\Theta(n^2)\) on already-sorted arrays. <b>Randomized Quicksort</b> swaps a uniformly chosen random element with the last element before calling <code>PARTITION</code>.</p>
+  <p>Deterministic Quicksort with the last element as pivot degrades to Θ(n²) on already-sorted arrays. <b>Randomized Quicksort</b> swaps a uniformly chosen random element with the last element before calling <code>PARTITION</code>.</p>
 
   <div class="say-box">
     <b>Expected Time Derivation:</b>
-    \[E[T(n)] = \frac{2}{n} \sum_{k=0}^{n-1} E[T(k)] + cn = \Theta(n \log n) \approx 2n \ln n \approx 1.39 n \log_2 n\]
-    <b>Good Splits Intuition:</b> With probability \(1/2\), the pivot lands in the middle half of elements (a split no worse than \(3n/4\)). On average, every 2 levels shrinks problem size to \(3/4\) \(\implies \approx 2.4 \log_2 n\) levels, with \(O(n)\) work per level \(\implies O(n \log n)\).
+    <div class="code-block" style="text-align:center; font-weight:700; margin:10px 0; color:var(--accent);">E[T(n)] = (2/n) · ∑(k=0 to n−1) E[T(k)] + cn = Θ(n log n) ≈ 2n ln n ≈ 1.39 n log₂ n</div>
+    <b>Good Splits Intuition:</b> With probability 1/2, the pivot lands in the middle half of elements (a split no worse than 3n/4). On average, every 2 levels shrinks problem size to 3/4 ⟹ ≈ 2.4 log₂ n levels, with O(n) work per level ⟹ O(n log n).
   </div>
 
   <div class="exam-trap-box">
     <div class="exam-trap-title">🎯 THE FAMOUS EXAM TRICK: Ramesh vs Suresh (Autumn 2024 Q6b - 5 Marks)</div>
     <b>Question:</b> Ramesh picks the last element as pivot. Suresh picks a random element as pivot. Whose algorithm has the lesser worst-case time complexity? Prove.<br>
-    <b>Answer:</b> <b>NEITHER! BOTH HAVE WORST-CASE TIME COMPLEXITY \(\Theta(n^2)\)!</b><br>
-    <b>Proof:</b> For Suresh, there exists a tiny probability sequence of random draws that picks the maximum or minimum element at every single partition step. Under that unlucky sequence, Suresh's recurrence is also \(T(n) = T(n-1) + n = \Theta(n^2)\). Randomization improves the <i>expected</i> time to \(O(n \log n)\) on ALL inputs, but does NOT alter the mathematical worst case!
+    <b>Answer:</b> <b>NEITHER! BOTH HAVE WORST-CASE TIME COMPLEXITY Θ(n²)!</b><br>
+    <b>Proof:</b> For Suresh, there exists a tiny probability sequence of random draws that picks the maximum or minimum element at every single partition step. Under that unlucky sequence, Suresh's recurrence is also T(n) = T(n-1) + n = Θ(n²). Randomization improves the <i>expected</i> time to O(n log n) on ALL inputs, but does NOT alter the mathematical worst case!
   </div>
 
   <!-- Simulation 14: Quicksort Duel -->
@@ -830,7 +830,7 @@ LESSONS_HTML = """
     <div class="sim-header">
       <div class="sim-title">⚔️ The Quicksort Duel: Ramesh (Deterministic) vs Suresh (Random Pivot)</div>
     </div>
-    <p class="sim-hint">Select an array configuration of \(n = 50\) elements. Watch Ramesh choke on sorted inputs while Suresh breezily finishes in \(O(n \log n)\) comparisons!</p>
+    <p class="sim-hint">Select an array configuration of n = 50 elements. Watch Ramesh choke on sorted inputs while Suresh breezily finishes in O(n log n) comparisons!</p>
     
     <div class="row">
       <button class="btn active" id="duel-sorted">Input: Already Sorted Array</button>
@@ -922,55 +922,55 @@ LESSONS_HTML = """
     <div class="cheat-card">
       <h4>Amortized Analysis</h4>
       <ul>
-        <li><b>Idea:</b> Guaranteed worst-case average over \(n\) operations. No probability!</li>
-        <li><b>Aggregate:</b> \(T(n)/n\). Stack Multipop \(\le 2n/n = O(1)\). Binary Counter \(< 2n/n = O(1)\).</li>
-        <li><b>Accounting:</b> \(\sum \hat{c}_i \ge \sum c_i\) (bank \(\ge 0\)). Doubling array: charge Rs 5 (Rs 2 write, Rs 3 bank).</li>
-        <li><b>Push Digits at \(2^k\):</b> updates cost \(i-1\) at powers of 2. Total \(< 3n \implies O(1)\).</li>
+        <li><b>Idea:</b> Guaranteed worst-case average over n operations. No probability!</li>
+        <li><b>Aggregate:</b> T(n)/n. Stack Multipop ≤ 2n/n = O(1). Binary Counter < 2n/n = O(1).</li>
+        <li><b>Accounting:</b> ∑ ĉᵢ ≥ ∑ c_i (bank ≥ 0). Doubling array: charge Rs 5 (Rs 2 write, Rs 3 bank).</li>
+        <li><b>Push Digits at 2ᵏ:</b> updates cost i-1 at powers of 2. Total < 3n ⟹ O(1).</li>
       </ul>
     </div>
     <div class="cheat-card">
       <h4>Randomized Algorithms</h4>
       <ul>
         <li><b>Las Vegas:</b> ALWAYS correct output; time is a random variable. (Randomized Quicksort).</li>
-        <li><b>Monte Carlo:</b> Bounded time; small error probability \(\epsilon\). Repeat \(k\) times \(\to \epsilon^k\). (Miller-Rabin, \(\pi\) darts).</li>
-        <li><b>Rand Quicksort:</b> Expected \(O(n \log n) \approx 2n \ln n\). Worst case is still \(O(n^2)\).</li>
-        <li><b>Ramesh vs Suresh:</b> BOTH have \(\Theta(n^2)\) worst case! Random pivot improves expected time only.</li>
+        <li><b>Monte Carlo:</b> Bounded time; small error probability ε. Repeat k times → ε^k. (Miller-Rabin, π darts).</li>
+        <li><b>Rand Quicksort:</b> Expected O(n log n) ≈ 2n ln n. Worst case is still O(n²).</li>
+        <li><b>Ramesh vs Suresh:</b> BOTH have Θ(n²) worst case! Random pivot improves expected time only.</li>
       </ul>
     </div>
     <div class="cheat-card">
       <h4>Complexity Classes</h4>
       <ul>
         <li><b>P:</b> Solvable in polynomial time deterministically. (Dijkstra, Kruskal, 2-SAT).</li>
-        <li><b>NP:</b> Verifiable in polynomial time with certificate. \(P \subseteq NP\).</li>
+        <li><b>NP:</b> Verifiable in polynomial time with certificate. P ⊆ NP.</li>
         <li><b>NP-Hard:</b> Every problem in NP reduces to it. (Halting problem, TSP optimization).</li>
         <li><b>NP-Complete:</b> In NP and NP-Hard. First problem: Circuit-SAT (Cook's theorem).</li>
-        <li><b>If ANY NPC problem gets poly solution:</b> \(P = NP\).</li>
+        <li><b>If ANY NPC problem gets poly solution:</b> P = NP.</li>
       </ul>
     </div>
     <div class="cheat-card">
       <h4>Reductions & The Famous Chain</h4>
       <ul>
-        <li><b>Reduction \(A \le_p B\):</b> B in P \(\implies\) A in P; A NP-hard \(\implies\) B NP-hard.</li>
-        <li><b>Direction Trap:</b> Known NP-hard \(\le_p\) New proves New is NP-hard.</li>
-        <li><b>Chain:</b> Circuit-SAT \(\to\) SAT \(\to\) 3-SAT \(\to\) Clique \(\to\) Vertex Cover \(\to\) HC \(\to\) TSP.</li>
-        <li><b>Triad:</b> Clique in \(G \iff\) Indep Set in \(\bar{G} \iff\) Vertex Cover of size \(n-k\) in \(\bar{G}\).</li>
+        <li><b>Reduction A ≤ₚ B:</b> B in P ⟹ A in P; A NP-hard ⟹ B NP-hard.</li>
+        <li><b>Direction Trap:</b> Known NP-hard ≤ₚ New proves New is NP-hard.</li>
+        <li><b>Chain:</b> Circuit-SAT → SAT → 3-SAT → Clique → Vertex Cover → HC → TSP.</li>
+        <li><b>Triad:</b> Clique in G ⟺ Indep Set in Ḡ ⟺ Vertex Cover of size n-k in Ḡ.</li>
       </ul>
     </div>
     <div class="cheat-card">
       <h4>Approximations</h4>
       <ul>
-        <li><b>Vertex Cover 2-Approx:</b> Maximal matching edges \(M\), cover \(C = 2|M|\). Since \(|OPT| \ge |M| \implies |C| \le 2 \cdot |OPT|\).</li>
-        <li><b>Metric TSP 2-Approx:</b> Prim/Kruskal MST \(\to\) full walk (\(2 \cdot MST\)) \(\to\) preorder shortcutting. \(Cost \le 2 \cdot MST \le 2 \cdot OPT\).</li>
+        <li><b>Vertex Cover 2-Approx:</b> Maximal matching edges M, cover C = 2|M|. Since |OPT| ≥ |M| ⟹ |C| ≤ 2 · |OPT|.</li>
+        <li><b>Metric TSP 2-Approx:</b> Prim/Kruskal MST → full walk (2 · MST) → preorder shortcutting. Cost ≤ 2 · MST ≤ 2 · OPT.</li>
         <li><b>Christofides Algorithm:</b> 1.5-approximation for metric TSP (MST + minimum weight perfect matching on odd-degree vertices).</li>
-        <li><b>General TSP:</b> Has NO constant factor approximation unless \(P = NP\).</li>
+        <li><b>General TSP:</b> Has NO constant factor approximation unless P = NP.</li>
       </ul>
     </div>
     <div class="cheat-card">
       <h4>Verification Algorithms</h4>
       <ul>
-        <li><b>Clique \(\in\) NP:</b> Certificate is set of \(k\) vertices. Check all \(\binom{k}{2}\) pairs share an edge. Time \(O(k^2) \le O(n^2)\).</li>
-        <li><b>TSP \(\in\) NP:</b> Certificate is vertex sequence. Check all \(n\) visited and sum weights \(\le k\). Time \(O(n)\).</li>
-        <li><b>Vertex Cover \(\in\) NP:</b> Certificate is \(k\) vertices. Check all \(E\) edges touched. Time \(O(E)\).</li>
+        <li><b>Clique ∈ NP:</b> Certificate is set of k vertices. Check all C(k, 2) pairs share an edge. Time O(k²) ≤ O(n²).</li>
+        <li><b>TSP ∈ NP:</b> Certificate is vertex sequence. Check all n visited and sum weights ≤ k. Time O(n).</li>
+        <li><b>Vertex Cover ∈ NP:</b> Certificate is k vertices. Check all E edges touched. Time O(E).</li>
       </ul>
     </div>
   </div>

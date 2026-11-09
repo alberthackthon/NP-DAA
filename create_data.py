@@ -30,14 +30,14 @@ Correct answer: Sorting."""
         "marks": 5,
         "type": "numerical",
         "question": "Suppose we perform a sequence of n operations on a data structure in which the i-th operation costs i if i is an exact power of 2, and 1 otherwise. Use aggregate analysis or the accounting method to determine the amortized cost per operation.",
-        "short_answer": "Total ≤ n + (1+2+4+...+2^k) < 3n → amortized cost ≤ 3 = O(1). (Ch 1)",
+        "short_answer": "Total ≤ n + (1+2+4+...+2ᵏ) < 3n → amortized cost ≤ 3 = O(1). (Ch 1)",
         "full_solution": """Method: Aggregate Analysis
 1. Actual cost of operation i:
-   - c(i) = i, if i = 2^k for integer k ≥ 0 (expensive operation)
+   - c(i) = i, if i = 2ᵏ for integer k ≥ 0 (expensive operation)
    - c(i) = 1, otherwise (cheap operation)
 2. In a sequence of n operations:
    - Total cost of all operations that are powers of 2:
-     Sum = 1 + 2 + 4 + 8 + ... + 2^m, where 2^m ≤ n.
+     Sum = 1 + 2 + 4 + 8 + ... + 2ᵐ, where 2ᵐ ≤ n.
      Using the geometric progression sum formula: Sum = 2^(m+1) - 1 < 2n.
    - Total cost of all other operations:
      There are at most n operations, each costing at most 1, so their total is at most n.
@@ -87,24 +87,24 @@ Conclusion: The amortized cost per operation is O(1)."""
         "q": "Q3(a)+(b)",
         "marks": 10,
         "type": "numerical",
-        "question": "Array A of size n. Push one-digit numbers in order into positions 1 to n. When pushing digit d to position i = 2^k (k ≥ 1), also update all earlier entries: A[p] ← 10·A[p] + d for p = i-1 down to 1. Find the amortized cost per operation by aggregate or accounting method.",
+        "question": "Array A of size n. Push one-digit numbers in order into positions 1 to n. When pushing digit d to position i = 2ᵏ (k ≥ 1), also update all earlier entries: A[p] ← 10·A[p] + d for p = i-1 down to 1. Find the amortized cost per operation by aggregate or accounting method.",
         "short_answer": "Updates cost i-1 only at i = 2, 4, 8...; total < n + 2n = 3n → amortized O(1). (Ch 1)",
         "full_solution": """1. Actual cost per operation:
    - If i is NOT a power of 2: writing digit d into A[i] costs 1.
-   - If i = 2^k (k ≥ 1): writing A[i] costs 1, plus (i - 1) updates for p = 1 to i-1.
+   - If i = 2ᵏ (k ≥ 1): writing A[i] costs 1, plus (i - 1) updates for p = 1 to i-1.
      Total cost for operation i = 1 + (i - 1) = i.
 2. Aggregate Method Analysis:
    - Total cost of n operations:
-     T(n) = (sum of write costs for all n elements) + (sum of updates at i = 2, 4, 8, ..., 2^m ≤ n)
-     T(n) = n + Σ (2^k - 1) for 2^k ≤ n
-     Since Σ 2^k for k=1 to m is 2^(m+1) - 2 < 2n:
+     T(n) = (sum of write costs for all n elements) + (sum of updates at i = 2, 4, 8, ..., 2ᵐ ≤ n)
+     T(n) = n + Σ (2ᵏ - 1) for 2ᵏ ≤ n
+     Since Σ 2ᵏ for k=1 to m is 2^(m+1) - 2 < 2n:
      T(n) < n + 2n = 3n.
 3. Amortized cost:
    T(n) / n < 3n / n = 3 = O(1) per operation.
 4. Accounting Method (Alternative):
    - Charge an amortized fee of 3 per push.
    - 1 pays for the immediate push into A[i].
-   - 2 is saved as credit. Between powers of 2 (i/2 pushes), the saved credit is 2 × (i/2) = i coins, which pays for the (i - 1) updates when reaching 2^k. Credit never drops below zero.
+   - 2 is saved as credit. Between powers of 2 (i/2 pushes), the saved credit is 2 × (i/2) = i coins, which pays for the (i - 1) updates when reaching 2ᵏ· Credit never drops below zero.
 Conclusion: Amortized cost is O(1) per operation."""
     },
     {
@@ -290,7 +290,7 @@ Answer: Circuit Satisfiability, Binary Knapsack, and TSP."""
         "question": "Define the classes P and NP. Mention one problem that belongs to NP but not to P.",
         "short_answer": "P = poly solvable; NP = poly verifiable. State: TSP / Clique is in NP and not known to be in P (in NP \\ P assuming P ≠ NP). (Ch 4)",
         "full_solution": """1. Definitions:
-   - P: Decision problems solvable in polynomial time O(n^k) by a deterministic algorithm.
+   - P: Decision problems solvable in polynomial time O(nᵏ) by a deterministic algorithm.
    - NP: Decision problems verifiable in polynomial time given a certificate.
 2. Problem in NP but not in P:
    - Strictly, whether any problem exists in NP \\ P is mathematically equivalent to the millennium prize problem P ≠ NP, which remains unproven.
@@ -458,7 +458,7 @@ Correct answer: All of the above."""
    - Example: 2-SAT is in P; Vertex Cover on bipartite graphs (Konig's theorem) or trees is in P.
 4. Dynamic Programming for Small n:
    - Exact solutions feasible for small inputs.
-   - Example: Held-Karp algorithm for TSP in O(n² 2^n) time vs O(n!) brute-force.
+   - Example: Held-Karp algorithm for TSP in O(n² 2ⁿ) time vs O(n!) brute-force.
 5. Backtracking and Branch & Bound:
    - Exponential worst-case, but aggressively prunes subtrees that cannot beat the best known bound.
    - Example: Branch and bound for 0/1 Knapsack, TSP.
@@ -513,13 +513,13 @@ Correct answer: All of the above."""
    Examples: 3-SAT, Clique, Hamiltonian Cycle, Vertex Cover.
 
 2. Proving or Disproving P = NP:
-   - To prove P = NP: Find a deterministic polynomial-time algorithm for ANY single NP-complete problem (e.g. 3-SAT in O(n^k)). Since all NP problems reduce to it, all NP problems would be solvable in polynomial time.
+   - To prove P = NP: Find a deterministic polynomial-time algorithm for ANY single NP-complete problem (e.g. 3-SAT in O(nᵏ)). Since all NP problems reduce to it, all NP problems would be solvable in polynomial time.
    - To prove P ≠ NP: Mathematically prove that for at least one problem in NP (such as 3-SAT), NO deterministic polynomial-time algorithm can ever exist. (Millennium Prize problem).
 
 3. What if a known NPC problem gets a polynomial solution?
    If a polynomial-time algorithm is discovered for an NPC problem X:
    - Then P = NP!
-   - Reason: For any problem L ∈ NP, L ≤p X via converter f in time O(n^a), and X can be solved in time O(n^b). The composition takes O((n^a)^b) = O(n^(ab)), which is strictly polynomial."""
+   - Reason: For any problem L ∈ NP, L ≤p X via converter f in time O(nᵃ), and X can be solved in time O(nᵇ). The composition takes O((nᵃ)ᵇ) = O(n^(ab)), which is strictly polynomial."""
     },
     {
         "id": "pdf-23",
@@ -550,10 +550,10 @@ This statement is FALSE.
         "question": "Describe P, NP and NPC classes of problems through suitable examples.",
         "short_answer": "Chapter 4: P (Dijkstra, sorting), NP (verification with certificate), NPC (SAT, Clique, TSP). (Ch 4)",
         "full_solution": """1. Class P (Polynomial Time):
-   - Problems solvable by a deterministic algorithm in O(n^c) time.
-   - Example: Single-source shortest path (Dijkstra runs in O(E + V log V)), Matrix multiplication (Strassen O(n^2.81)), Finding Minimum Spanning Tree (Prim/Kruskal).
+   - Problems solvable by a deterministic algorithm in O(nᶜ) time.
+   - Example: Single-source shortest path (Dijkstra runs in O(E + V log V)), Matrix multiplication (Strassen O(n²·⁸¹)), Finding Minimum Spanning Tree (Prim/Kruskal).
 2. Class NP (Nondeterministic Polynomial Time):
-   - Problems where a candidate certificate for a YES-instance can be checked in O(n^c) time.
+   - Problems where a candidate certificate for a YES-instance can be checked in O(nᶜ) time.
    - Example: Subset Sum (given a subset, summing elements and checking target takes O(n)), Hamiltonian Cycle (given a sequence of vertices, verifying it forms a valid simple cycle of length n takes O(n)).
 3. Class NPC (NP-Complete):
    - Hardest problems in NP. Both in NP and NP-hard.
